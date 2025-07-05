@@ -12,8 +12,8 @@ import CreatePost from './components/create/CreatePost';
 import DetailView from './components/details/DetailView';
 import Update from './components/create/Update';
 import About from './components/about/About';
-import Contact from './components/contact/Contact';
-import Login from './components/account/Login';
+// import Contact from './components/contact/Contact';
+// import Login from './components/account/Login';
 import Main from './components/home/Main';
 
 
@@ -35,7 +35,7 @@ function App() {
       <BrowserRouter>
         <Box style={{ marginTop: 64 }}>
           <Routes>
-            <Route path='/account' element={<Login isUserAuthenticated={isUserAuthenticated} />} />
+            {/* <Route path='/account' element={<Login isUserAuthenticated={isUserAuthenticated} />} /> */}
             
             <Route path='/main' element={<Main />} />
             <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
@@ -60,9 +60,7 @@ function App() {
               <Route path='/about' element={<About />} />
             </Route>
 
-            <Route path='/contact' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-              <Route path='/contact' element={<Contact />} />
-            </Route>
+            
           </Routes>
         </Box>
       </BrowserRouter>

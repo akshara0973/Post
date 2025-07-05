@@ -337,19 +337,19 @@ const Main = () => {
     <Container>
       <Header minimal />
       <HeroSection>
-        <HeroTitle>Welcome to BlogSync</HeroTitle>
+        <HeroTitle>Welcome to NodeBoard</HeroTitle>
         <HeroSubtitle>Discover, read, and share amazing stories with the world.</HeroSubtitle>
         <CTAButtons>
-          <CTAButton>Explore Blogs</CTAButton>
+          <CTAButton>Explore Board </CTAButton>
           <CTAButton variant="outlined">Sign Up</CTAButton>
         </CTAButtons>
       </HeroSection>
 
       <AboutSection>
-        <AboutHeading>About BlogSync</AboutHeading>
+        <AboutHeading>About Board</AboutHeading>
         <AboutText>
-          BlogSync is a dynamic blogging platform where creativity meets community. Whether you're an avid reader or an aspiring writer,
-          BlogSync makes it easy to engage with meaningful content and share your voice with the world.
+          NodeBoard is a simple and user-friendly platform built with the MERN stack (MongoDB, Express, React, Node.js). It allows users to create and share posts, helping beginners understand
+           how full-stack applications work. A great project for learning and experimenting with modern web technologies.
         </AboutText>
       </AboutSection>
 
@@ -364,9 +364,9 @@ const Main = () => {
             </FrameHeader>
             <FrameImage src="/image.png" alt="Blog" />
             <FrameContent>
-              <FrameHeading>The Future of Blogging: Trends to Watch in 2025</FrameHeading>
+              <FrameHeading>M :- MongoDB</FrameHeading>
               <FrameParagraph>
-              Upcoming trends in blogging, such as AI content creation and the rise of video blogs.
+              NoSQL database for storing data as JSON-like documents.
               </FrameParagraph>
             </FrameContent>         
           </BrowserFrame>
@@ -379,7 +379,7 @@ const Main = () => {
             </FrameHeader>
             <FrameImage src="/image1.jfif" alt="Blog" />
             <FrameContent>
-              <FrameHeading>SEO Best Practices: How to Rank Higher</FrameHeading>
+              <FrameHeading>E :- Express</FrameHeading>
               <FrameParagraph>
               A guide on SEO techniques and optimization strategies specifically tailored for bloggers.
               </FrameParagraph>
@@ -394,7 +394,22 @@ const Main = () => {
             </FrameHeader>
             <FrameImage src="/image2.jfif" alt="Blog" />
             <FrameContent>
-              <FrameHeading>How to Build a Successful Blog</FrameHeading>
+              <FrameHeading>R :- ReactJs</FrameHeading>
+              <FrameParagraph>
+              Offering a step-by-step guide on starting a blog, including niche selection.
+              </FrameParagraph>
+            </FrameContent>         
+          </BrowserFrame>
+
+          <BrowserFrame>
+            <FrameHeader>
+              <Circle color="#f56565" />
+              <Circle color="#f6e05e" />
+              <Circle color="#48bb78" />
+            </FrameHeader>
+            <FrameImage src="/image2.jfif" alt="Blog" />
+            <FrameContent>
+              <FrameHeading>N :- NodeJs</FrameHeading>
               <FrameParagraph>
               Offering a step-by-step guide on starting a blog, including niche selection.
               </FrameParagraph>

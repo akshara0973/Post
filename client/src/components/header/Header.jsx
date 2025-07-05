@@ -49,26 +49,7 @@ const Header = ({ minimal }) => {
       <Container>
         <img src="/Logo.png" alt="BlogSync Logo" />
         
-        {minimal ? (
-          <Button
-            variant="outlined"
-            onClick={() => navigate('/account')}
-            style={{
-              borderColor: '#ffffff',
-              color: '#ffffff',
-              fontWeight: '600',
-            }}
-          >
-            Sign Up
-          </Button>
-        ) : (
-          <>
-            <Link to='/'>HOME</Link>
-            <Link to='/about'>ABOUT</Link>
-            <Link to='/contact'>CONTACT</Link>
-            <Link to='/account'>LOGOUT</Link>
-          </>
-        )}
+        
       </Container>
     </Component>
   );

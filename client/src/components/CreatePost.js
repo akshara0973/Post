@@ -64,7 +64,7 @@ function CreatePost() {
         setImagePreview(null);
         setLocation("");
         setShowEmojiPicker(false);
-        alert("Post saved to backend successfully!");
+        alert("Posted!");
 
         // Re-fetch posts after posting
         const response = await axios.get("http://localhost:5000/posts", {

@@ -244,7 +244,7 @@
 }
 
 .create-post-box {
-  background: white;
+  background: rgb(231, 197, 242);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -289,7 +289,7 @@
   padding: 10px;
   font-size: 16px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 8px;
   resize: none;
 }
@@ -317,7 +317,7 @@
 .post-btn {
   width: 100%;
   padding: 10px;
-  background-color: #0078d4;
+  background-color: #3463a0;
   color: white;
   border: none;
   border-radius: 8px;
@@ -326,7 +326,7 @@
 }
 
 .post-btn:disabled {
-  background-color: #ccc;
+  background-color: #3463a0;
 }
 
 .feed-container {
@@ -340,7 +340,7 @@
 }
 
 .post-card {
-  background: white;
+  background: rgb(248, 231, 246);
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

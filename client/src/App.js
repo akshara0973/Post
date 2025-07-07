@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import CreatePost from "./components/CreatePost";
+import Landing from "./components/landing";
 // import SavedPost from "./components/SavedPost";
 
 function App() {
-  // const [savedPosts, setSavedPosts] = useState([]);
-
   return (
     <div className="App">
-      <CreatePost />
-      {/* <SavedPost savedPosts={savedPosts} /> */}
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/create" element={<CreatePost />} />
+        {/* <Route path="/saved" element={<SavedPost />} /> */}
+      </Routes>
     </div>
   );
 }
 
 export default App;
-

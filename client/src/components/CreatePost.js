@@ -3,6 +3,7 @@ import axios from "axios";
 import avatarImage from "../assets/212890.jpg"; // Change this path according to your actual image path
 import "./CreatePost.css";
 
+
 function CreatePost() {
   const [postText, setPostText] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);

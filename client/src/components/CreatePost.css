@@ -5,6 +5,12 @@
   align-items: center;
   background: #e9ebee;
 }
+.main-container {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+
+  min-height: 100vh;
+  padding: 20px;
+}
 
 .post-box {
   width: 400px;

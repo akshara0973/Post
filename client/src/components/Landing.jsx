@@ -52,8 +52,21 @@ const CTAButtons = styled(Box)`
   display: flex;
   justify-content: center;
   gap: 20px;
-  
+
+  button:first-child {
+    animation: blink 1.2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
 `;
+
 
 const CTAButton = styled(Button)`
   padding: 10px 24px;
@@ -336,8 +349,10 @@ const FooterText = styled(Typography)`
   font-size: 12px;
   color: #c0c0c0;
 `;
+
 const Landing = () => {
   const navigate = useNavigate(); // Hook to navigate programmatically
+  
 
   return (
     <Container>

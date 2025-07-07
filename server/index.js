@@ -5,7 +5,10 @@ const Post = require("./models/Post");
 require("dotenv").config(); // To use environment variables
 
 const app = express();
-const PORT = 5000;
+// const PORT = 5000;
+const PORT = process.env.PORT;
+const MONGO_URI = process.env.MONGO_URI;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middlewares
 app.use(cors());

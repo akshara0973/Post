@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import avatarImage from "../assets/212890.jpg";
+import avatarImage from "../assets/212890.jpg"; // Change this path according to your actual image path
 import "./CreatePost.css";
 
-const API_URL = process.env.REACT_APP_API_URL;
 
 function CreatePost() {
   const [postText, setPostText] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
   const [location, setLocation] = useState("");
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]); // State to hold the latest 4 posts
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
+    // Fetch latest 4 posts on load
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`${API_URL}/posts`, {
-          params: { user: "Akshara" },
-        });
+         params: { user: "Akshara" },
+});
+
         setPosts(response.data);
       } catch (err) {
         console.error("Error fetching posts:", err);
@@ -47,6 +49,7 @@ function CreatePost() {
     setShowEmojiPicker(false);
   };
 
+  // Save post to backend
   const handlePost = async () => {
     if (postText || imagePreview) {
       const newPost = {
@@ -58,13 +61,16 @@ function CreatePost() {
       };
 
       try {
+        // await axios.post("http://localhost:5000/posts", newPost);
         await axios.post(`${API_URL}/posts`, newPost);
+
         setPostText("");
         setImagePreview(null);
         setLocation("");
         setShowEmojiPicker(false);
         alert("Posted!");
 
+        // Re-fetch posts after posting
         const response = await axios.get(`${API_URL}/posts`, {
           params: { user: "Akshara" },
         });
@@ -81,6 +87,8 @@ function CreatePost() {
       <div className="create-post-container">
         <div className="create-post-box">
           <h3>Create Post</h3>
+
+          {/* User Info */}
           <div className="user-info">
             <div className="avatar">
               <img src={avatarImage} alt="avatar" className="avatar-img" />
@@ -121,7 +129,7 @@ function CreatePost() {
               />
             </label>
             <button onClick={toggleEmojiPicker}>😊</button>
-            <button>🎥</button>
+            <button>🎥</button> {/* GIF button */}
           </div>
 
           {showEmojiPicker && (
@@ -154,12 +162,17 @@ function CreatePost() {
         </div>
       </div>
 
+      {/* Instagram-style Feed */}
       <div className="feed-container">
         <div className="posts-feed">
           {posts.map((post, index) => (
             <div key={index} className="post-card">
               <div className="post-header">
-                <img src={avatarImage} alt="avatar" className="post-avatar" />
+                <img
+                  src={avatarImage}
+                  alt="avatar"
+                  className="post-avatar"
+                />
                 <div className="post-username">{post.username}</div>
                 <div className="post-timestamp">
                   {new Date(post.timestamp).toLocaleString()}

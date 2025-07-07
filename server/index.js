@@ -14,6 +14,10 @@ const JWT_SECRET = process.env.JWT_SECRET;
 app.use(cors());
 app.use(express.json());
 
+app.use(cors({
+  origin: ["http://localhost:3000", "https://your-frontend.vercel.app"]
+}));
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/createpost", {
   useNewUrlParser: true,

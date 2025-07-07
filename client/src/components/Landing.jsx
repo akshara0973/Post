@@ -47,22 +47,36 @@ const HeroSubtitle = styled(Typography)`
   color: #cccccc;
   margin-bottom: 30px;
 `;
-
 const CTAButtons = styled(Box)`
   display: flex;
   justify-content: center;
   gap: 20px;
 
-  button:first-child {
-    animation: blink 1.2s infinite;
+  .notify-container {
+    position: relative;
+    display: inline-block;
   }
 
-  @keyframes blink {
+  .notify-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4d4f;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 12px;
+    animation: pop-blink 1.2s infinite;
+  }
+
+  @keyframes pop-blink {
     0%, 100% {
       opacity: 1;
+      transform: scale(1);
     }
     50% {
-      opacity: 0.4;
+      opacity: 0.6;
+      transform: scale(1.1);
     }
   }
 `;
@@ -360,10 +374,13 @@ const Landing = () => {
       <HeroSection>
         <HeroTitle>Welcome to NodeBoard</HeroTitle>
         <HeroSubtitle>Discover, read, and share amazing stories with the world.</HeroSubtitle>
-        <CTAButtons>
-          <CTAButton onClick={() => navigate("/create")}>Write Post</CTAButton>
-          <CTAButton variant="outlined">Sign Up</CTAButton>
-        </CTAButtons>
+       <CTAButtons>
+  <div className="notify-container">
+    <CTAButton onClick={() => navigate("/create")}>Write Post</CTAButton>
+    <span className="notify-badge">Try it!</span>
+  </div>
+  <CTAButton variant="outlined">Sign Up</CTAButton>
+</CTAButtons>
       </HeroSection>
 
       <AboutSection>

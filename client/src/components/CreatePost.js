@@ -10,15 +10,32 @@ function CreatePost() {
   const [imagePreview, setImagePreview] = useState(null);
   const [location, setLocation] = useState("");
   const [posts, setPosts] = useState([]); // State to hold the latest 4 posts
+  // const API_URL = process.env.REACT_APP_API_URL;
+  
   const API_URL = process.env.REACT_APP_API_URL;
+
 
   useEffect(() => {
     // Fetch latest 4 posts on load
     const fetchPosts = async () => {
       try {
+      
+
         const response = await axios.get(`${API_URL}/posts`, {
          params: { user: "Akshara" },
+
 });
+
+const fetchPosts = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/posts", {
+      params: { user: "Akshara" },
+    });
+    // Handle response here
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+  }
+};
 
         setPosts(response.data);
       } catch (err) {

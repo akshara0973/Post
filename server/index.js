@@ -2,30 +2,29 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Post = require("./models/Post");
-require("dotenv").config(); // To use environment variables
+require("dotenv").config();
 
 const app = express();
-// const PORT = 5000;
-const PORT = process.env.PORT;
-const MONGO_URI = process.env.MONGO_URI;
-const JWT_SECRET = process.env.JWT_SECRET;
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/createpost";
 
-// Middlewares
-app.use(cors());
-app.use(express.json());
-
+// ✅ For LOCALHOST ONLY
 app.use(cors({
-  origin: "*"
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
 }));
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/createpost", {
+app.use(express.json());
+
+// MongoDB connection
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
-  console.log("Connected to MongoDB");
+  console.log("✅ Connected to MongoDB");
 }).catch((err) => {
-  console.error("MongoDB connection error:", err);
+  console.error("❌ MongoDB connection error:", err);
 });
 
 // POST: Create a new post
@@ -35,6 +34,7 @@ app.post("/posts", async (req, res) => {
     await post.save();
     res.status(201).json(post);
   } catch (err) {
+    console.error("❌ Error saving post:", err);
     res.status(500).json({ error: "Failed to save post" });
   }
 });
@@ -49,15 +49,16 @@ app.get("/posts", async (req, res) => {
 
   try {
     const posts = await Post.find({ username: user })
-      .sort({ timestamp: -1 }) // Sort by newest first
-      .limit(4); // Get only the latest 4 posts
+      .sort({ timestamp: -1 })
+      .limit(4);
     res.json(posts);
   } catch (err) {
+    console.error("❌ Error fetching posts:", err);
     res.status(500).json({ error: "Failed to fetch posts" });
   }
 });
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });

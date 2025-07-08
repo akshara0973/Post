@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CreatePost from "./components/CreatePost";
-import Landing from "./components/landing";
+import Landing from "./components/Landing";
 // import SavedPost from "./components/SavedPost";
 
 function App() {
